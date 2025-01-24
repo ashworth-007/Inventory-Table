@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   try {
     const items = await Item.find();
     res.json(items);
-    res.send(<h1>Backend Connected Successfully!</h1>);
+    res.send('<h1>Backend Connected Successfully!</h1>');
 
   } catch (err) {
     res.status(400).send(err);
