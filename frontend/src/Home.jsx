@@ -11,7 +11,7 @@ const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // Control modal visibility
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/items')
+    axios.get('https://inventory-table.onrender.com/items')
       .then(response => setItems(response.data));
   }, []);
 
@@ -26,7 +26,7 @@ const Home = () => {
   }, [filterCategory, items]);
 
   const addItem = () => {
-    axios.post('http://localhost:5000/api/items', newItem)
+    axios.post('https://inventory-table.onrender.com/items', newItem)
       .then(response => {
         setItems([...items, response.data]);
         setNewItem({ name: '', category: '', quantity: 0, description: '' });
@@ -34,7 +34,7 @@ const Home = () => {
   };
 
   const updateItem = (id, updatedItem) => {
-    axios.put(`http://localhost:5000/api/items/${id}`, updatedItem)
+    axios.put(`https://inventory-table.onrender.com/items/${id}`, updatedItem)
       .then(response => {
         setItems(items.map(item => item._id === id ? response.data : item));
         setIsModalOpen(false); // Close the modal after updating
@@ -42,7 +42,7 @@ const Home = () => {
   };
 
   const deleteItem = (id) => {
-    axios.delete(`http://localhost:5000/api/items/${id}`)
+    axios.delete(`https://inventory-table.onrender.com/items/${id}`)
       .then(() => {
         setItems(items.filter(item => item._id !== id));
       });
