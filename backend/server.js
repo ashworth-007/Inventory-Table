@@ -15,7 +15,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Routes
-app.use('/api/items', itemsRoutes);
+app.use('/items', itemsRoutes);
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
